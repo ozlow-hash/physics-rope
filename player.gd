@@ -47,3 +47,32 @@ func _draw() -> void:
 		draw_line(line["start"], line["end"], Color.ALICE_BLUE, 4, true)
 	if dragging:
 		draw_line(draw_start, draw_held, Color.RED, 2, true)
+
+func _create_static_body():
+	##create staticbody2d Node
+	#var static_body = StaticBody2D.new()
+	#static_body.global_position = Vector2(0,0)
+	#
+	#var col_shape = CollisionShape2D.new()
+	#var shape = RectangleShape2D.new()
+	#shape.size = Vector2(100,20)
+	#
+	##connect it all together
+	#col_shape.shape = shape
+	#static_body.add_child(col_shape)
+	#
+	#add_child(static_body)
+	#
+	var static_body = StaticBody2D.new()
+	var collision_shape = CollisionShape2D.new()
+	var segment = SegmentShape2D.new()
+	
+	segment.a = draw_start
+	segment.b = draw_end
+	
+	collision_shape.shape = segment
+	
+	static_body.add_child(collision_shape)
+	
+	get_parent().add_child(static_body)
+	
