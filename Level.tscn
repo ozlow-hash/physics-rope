@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://c67rxo7fchuvg"]
 
 [ext_resource type="PackedScene" uid="uid://ykqnk1mp8ktg" path="res://Player.tscn" id="1_bexhn"]
+[ext_resource type="PackedScene" uid="uid://ck37ad7hbq2oq" path="res://obj_ball/ball.tscn" id="2_t7iv1"]
+[ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="3_2nifc"]
 
-[node name="Node2D" type="Node2D" unique_id=1858084982]
+[node name="Level" type="Node2D" unique_id=1858084982]
 
 [node name="Node2D" parent="." unique_id=1271217963 instance=ExtResource("1_bexhn")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=826693543]
+
+[node name="ball" parent="." unique_id=2127765814 instance=ExtResource("2_t7iv1")]
+position = Vector2(-194, -260)
+
+[node name="ball2" parent="." unique_id=1910254225 instance=ExtResource("2_t7iv1")]
+position = Vector2(-84, -257)
+
+[node name="ball3" parent="." unique_id=695228324 instance=ExtResource("2_t7iv1")]
+position = Vector2(56, -252)
+
+[node name="ball4" parent="." unique_id=759252870 instance=ExtResource("2_t7iv1")]
+position = Vector2(189, -251)
+
+[node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("3_2nifc")]
+position = Vector2(0, 293)

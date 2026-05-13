@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ck37ad7hbq2oq"]
+
+[ext_resource type="Texture2D" uid="uid://c5cuon6ijdetg" path="res://obj_ball/ball_FPO.png" id="1_lyfwk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdgtj"]
+radius = 31.016125
+
+[node name="ball" type="RigidBody2D" unique_id=2127765814]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=522186281]
+texture_filter = 1
+texture = ExtResource("1_lyfwk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=182320153]
+shape = SubResource("CircleShape2D_gdgtj")
