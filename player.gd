@@ -13,34 +13,41 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("Draw"):
+		if event.is_action_pressed("Draw"): #grab the first point of the line
 			dragging = true
 			draw_start = get_global_mouse_position()
 			draw_held = get_global_mouse_position()
 			queue_redraw()
-		else:
+		elif event.is_action_released("Draw"): #get the second point of the line
 			dragging = false
 			draw_end = get_global_mouse_position()
 			lines.append({"start": draw_start, "end": draw_end})
 			
-			#create collision
-			create_line_collision(draw_start, draw_end)
 			
 			queue_redraw()
-	elif InputEventMouseMotion and dragging:
+	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
 		draw_held = get_global_mouse_position()
 		queue_redraw()
+	if event is InputEventKey:
+		if Input.is_key_pressed(KEY_SPACE):
+			print("test")
+			create_line_collision()
 
-func create_line_collision(start: Vector2, end: Vector2):
+func create_line_collision():
 	var static_body = StaticBody2D.new()
-	var collision_shape = CollisionShape2D.new()
-	var segment = SegmentShape2D.new()
+	var shape = RectangleShape2D.new()
+	var length = draw_start.distance_to(draw_end)
+	var height = 40
+	var angle = (draw_end - draw_start).angle()
 	
-	segment.a = start
-	segment.b = end
-	
-	static_body.add_child(collision_shape) #makes collision shape child of static body
+	static_body.rotation = angle
+	static_body.position = (draw_start + draw_end) / 2
 	add_child(static_body)
+	
+	var collision_shape = CollisionShape2D.new()
+	static_body.add_child(collision_shape)
+	
+	collision_shape.shape = shape
 
 func _draw() -> void:
 	for line in lines:
