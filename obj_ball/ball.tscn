@@ -6,6 +6,7 @@
 radius = 31.016125
 
 [node name="ball" type="RigidBody2D" unique_id=2127765814]
+gravity_scale = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=522186281]
 texture_filter = 1

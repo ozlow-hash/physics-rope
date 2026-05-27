@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://xk330idfxyro"]
+
+[node name="UiRemainingRope" type="Node2D" unique_id=1067405907]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=714353836]
+points = PackedVector2Array(0, 0)
+width = 200.0
