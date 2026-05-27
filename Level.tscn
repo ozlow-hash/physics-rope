@@ -11,16 +11,16 @@
 [node name="Camera2D" type="Camera2D" parent="." unique_id=826693543]
 
 [node name="ball" parent="." unique_id=2127765814 instance=ExtResource("2_t7iv1")]
-position = Vector2(-194, -260)
+position = Vector2(-32, -713)
 
 [node name="ball2" parent="." unique_id=1910254225 instance=ExtResource("2_t7iv1")]
-position = Vector2(-84, -257)
+position = Vector2(-5, -593)
 
 [node name="ball3" parent="." unique_id=695228324 instance=ExtResource("2_t7iv1")]
-position = Vector2(56, -252)
+position = Vector2(64, -511)
 
 [node name="ball4" parent="." unique_id=759252870 instance=ExtResource("2_t7iv1")]
-position = Vector2(189, -251)
+position = Vector2(95, -679)
 
 [node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("3_2nifc")]
 position = Vector2(0, 293)
