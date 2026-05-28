@@ -4,3 +4,5 @@
 
 [node name="Node2D" type="Node2D" unique_id=1271217963]
 script = ExtResource("1_xhfnw")
+
+[connection signal="rope_placed" from="." to="." method="_on_rope_placed"]

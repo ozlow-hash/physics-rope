@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ykqnk1mp8ktg" path="res://Player.tscn" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://ck37ad7hbq2oq" path="res://obj_ball/ball.tscn" id="2_t7iv1"]
 [ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://xk330idfxyro" path="res://hud.tscn" id="4_wkftn"]
 
 [node name="Level" type="Node2D" unique_id=1858084982]
 
@@ -24,3 +25,6 @@ position = Vector2(95, -679)
 
 [node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("3_2nifc")]
 position = Vector2(0, 293)
+
+[node name="hud" parent="." unique_id=1067405907 instance=ExtResource("4_wkftn")]
+position = Vector2(2, -291)
