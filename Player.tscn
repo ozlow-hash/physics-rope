@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://ykqnk1mp8ktg"]
 
 [ext_resource type="Script" uid="uid://shv6rfvynb7l" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://f2ymf0dm6rw6" path="res://hud.gd" id="2_kpjcp"]
 
-[node name="Node2D" type="Node2D" unique_id=1271217963]
+[sub_resource type="Theme" id="Theme_kne1u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e80uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxr5p"]
+bg_color = Color(0.8737798, 0.18982518, 0.44719082, 1)
+
+[node name="Player" type="Node2D" unique_id=1271217963]
 script = ExtResource("1_xhfnw")
 
-[connection signal="rope_placed" from="." to="." method="_on_rope_placed"]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1437678023]
+
+[node name="RopeBar" type="ProgressBar" parent="HUD" unique_id=405104947]
+offset_left = -285.0
+offset_right = 286.0
+offset_bottom = 23.0
+theme = SubResource("Theme_kne1u")
+theme_override_styles/background = SubResource("StyleBoxFlat_e80uo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cxr5p")
+value = 50.0
+script = ExtResource("2_kpjcp")
+
+[connection signal="length_change" from="." to="HUD/RopeBar" method="_on_player_length_change"]

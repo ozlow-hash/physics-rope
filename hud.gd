@@ -1,9 +1,11 @@
 extends ProgressBar
 
-@onready var rope_bar = $"."
+@onready var rope_bar = self
 
-#var rope_hp = 1000
-#var rope_lost = Global.line_length
-#
-#func _ready():
-	#rope_bar.value = rope_hp
+func _ready():
+	var player_max_length = get_parent().max_length
+	value = player_max_length
+
+
+func _on_player_length_change(player) -> void:
+	pass # Replace with function body.

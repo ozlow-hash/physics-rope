@@ -7,7 +7,7 @@
 
 [node name="Level" type="Node2D" unique_id=1858084982]
 
-[node name="Node2D" parent="." unique_id=1271217963 instance=ExtResource("1_bexhn")]
+[node name="Player" parent="." unique_id=1271217963 instance=ExtResource("1_bexhn")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=826693543]
 

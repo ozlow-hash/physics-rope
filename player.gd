@@ -1,14 +1,14 @@
 extends Node2D
 
-#signal rope_placed()
+signal length_change()
 
 var draw_start: Vector2
 var draw_held: Vector2
 var draw_end: Vector2
 var dragging = false
 
-#var line_length = 0
-#var length = draw_start.distance_to(draw_end)
+var max_length = 100
+var line_length = 0 #current line length
 
 var drawn_lines = [] #stores completed liens
 
@@ -27,9 +27,8 @@ func _input(event: InputEvent) -> void:
 			dragging = false
 			draw_end = get_global_mouse_position()
 			drawn_lines.append({"start": draw_start, "end": draw_end})
-			Global.line_length = draw_start.distance_to(draw_end)
+			line_length = draw_start.distance_to(draw_end)
 			create_line_collision()
-			#rope_placed.emit(Global.line_length)
 			
 			queue_redraw()
 	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
@@ -43,7 +42,7 @@ func create_line_collision():
 	#create shape and size of collision
 	var shape = RectangleShape2D.new()
 	var height = 10
-	var col_shape = Vector2(Global.line_length,height)
+	var col_shape = Vector2(line_length,height)
 	shape.size = col_shape
 	
 	#set angle of collision
@@ -65,5 +64,3 @@ func _draw() -> void:
 	if dragging:
 		draw_line(draw_start, draw_held, Color.RED, 2, true)
 #
-#func _on_rope_placed() -> void:
-	#pass # Replace with function body.
