@@ -16,13 +16,17 @@ script = ExtResource("1_xhfnw")
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1437678023]
 
 [node name="RopeBar" type="ProgressBar" parent="HUD" unique_id=405104947]
-offset_left = -285.0
-offset_right = 286.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 270.0
+offset_top = 148.0
+offset_right = -311.0
+offset_bottom = -477.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_kne1u")
 theme_override_styles/background = SubResource("StyleBoxFlat_e80uo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cxr5p")
 value = 50.0
 script = ExtResource("2_kpjcp")
-
-[connection signal="length_change" from="." to="HUD/RopeBar" method="_on_player_length_change"]

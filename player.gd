@@ -1,13 +1,12 @@
 extends Node2D
 
-signal length_change()
-
 var draw_start: Vector2
 var draw_held: Vector2
 var draw_end: Vector2
 var dragging = false
 
-var max_length = 100
+var max_length = 1000
+var line_rem = max_length #line remaining
 var line_length = 0 #current line length
 
 var drawn_lines = [] #stores completed liens
@@ -29,6 +28,8 @@ func _input(event: InputEvent) -> void:
 			drawn_lines.append({"start": draw_start, "end": draw_end})
 			line_length = draw_start.distance_to(draw_end)
 			create_line_collision()
+			line_rem -= max_length - line_length #update line length
+			print(line_rem)
 			
 			queue_redraw()
 	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
