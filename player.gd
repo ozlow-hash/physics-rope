@@ -5,9 +5,8 @@ var draw_held: Vector2
 var draw_end: Vector2
 var dragging = false
 
-var max_length = 10000
-var line_rem = max_length #line remaining
 var line_length = 0 #current line length DO NOT DELETE
+var line_preview = 0 #preview of line length
 
 var drawn_lines = [] #stores completed liens
 
@@ -31,14 +30,14 @@ func _input(event: InputEvent) -> void:
 			line_length = draw_start.distance_to(draw_end)
 			create_line_collision()
 			
-			line_rem = max_length - line_length #update line length
-			emit_signal("update_remaining", line_rem) #send line spent to healthbar
+			emit_signal("update_remaining", line_length) #send line spent to healthbar
 			
 			queue_redraw()
 	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
 		draw_held = get_global_mouse_position()
+		line_preview = draw_start.distance_to(draw_end)
+		print(line_preview)
 		queue_redraw()
-
 
 func create_line_collision():
 	var static_body = StaticBody2D.new()
@@ -67,4 +66,3 @@ func _draw() -> void:
 		draw_line(line["start"], line["end"], Color.ALICE_BLUE, 4, true)
 	if dragging:
 		draw_line(draw_start, draw_held, Color.RED, 2, true)
-#
