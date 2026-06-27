@@ -5,11 +5,13 @@ var draw_held: Vector2
 var draw_end: Vector2
 var dragging = false
 
-var max_length = 1000
+var max_length = 10000
 var line_rem = max_length #line remaining
-var line_length = 0 #current line length
+var line_length = 0 #current line length DO NOT DELETE
 
 var drawn_lines = [] #stores completed liens
+
+signal update_remaining
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,8 +30,9 @@ func _input(event: InputEvent) -> void:
 			drawn_lines.append({"start": draw_start, "end": draw_end})
 			line_length = draw_start.distance_to(draw_end)
 			create_line_collision()
-			line_rem -= max_length - line_length #update line length
-			print(line_rem)
+			
+			line_rem = max_length - line_length #update line length
+			emit_signal("update_remaining", line_rem) #send line spent to healthbar
 			
 			queue_redraw()
 	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
