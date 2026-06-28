@@ -17,26 +17,45 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	var mouse_pos = get_global_mouse_position()
+	
+	if event is InputEventMouseButton:	
 		if event.is_action_pressed("Draw"): #grab the first point of the line
 			dragging = true
-			draw_start = get_global_mouse_position()
-			draw_held = get_global_mouse_position()
+			draw_start = mouse_pos
+			draw_held = mouse_pos
 			queue_redraw()
 		elif event.is_action_released("Draw"): #get the second point of the line
 			dragging = false
-			draw_end = get_global_mouse_position()
-			drawn_lines.append({"start": draw_start, "end": draw_end})
-			line_length = draw_start.distance_to(draw_end)
-			create_line_collision()
 			
+			draw_end = draw_held
+			
+			line_length = draw_start.distance_to(draw_end)
+			
+			if line_length > Global.length_health:
+				queue_redraw()
+				return
+			
+			Global.length_health -= line_length
+			
+			drawn_lines.append({
+				"start": draw_start, 
+				"end": draw_end
+				})
+			
+			create_line_collision()
 			emit_signal("update_remaining", line_length) #send line spent to healthbar
 			
-			queue_redraw()
 	elif event is InputEventMouseMotion and dragging: #draw the preview of the line
-		draw_held = get_global_mouse_position()
-		line_preview = draw_start.distance_to(draw_end)
-		print(line_preview)
+		var line_direction = (mouse_pos - draw_start).normalized()
+		var distance = draw_start.distance_to(mouse_pos)
+		
+		if distance > Global.length_health:
+			draw_held = draw_start + line_direction * Global.length_health
+		else:
+			draw_held = mouse_pos
+		
+		line_preview = draw_start.distance_to(draw_held)
 		queue_redraw()
 
 func create_line_collision():
