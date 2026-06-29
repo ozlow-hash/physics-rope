@@ -31,4 +31,3 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cxr5p")
 script = ExtResource("2_kpjcp")
 
 [connection signal="update_remaining" from="." to="HUD/RopeBar" method="_on_player_update_remaining"]
-[connection signal="value_changed" from="HUD/RopeBar" to="." method="_on_rope_bar_value_changed"]

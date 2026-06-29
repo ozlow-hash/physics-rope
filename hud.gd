@@ -1,9 +1,7 @@
 extends ProgressBar
 
 @onready var rope_bar = self
-#
-#var length_max = 1500
-#var length_health = length_max
+
 var length_pct = 0
 
 func _ready():
