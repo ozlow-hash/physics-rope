@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ck37ad7hbq2oq"]
 
+[ext_resource type="Script" uid="uid://dwe5j6frp71de" path="res://obj_ball/ball.gd" id="1_gdgtj"]
 [ext_resource type="Texture2D" uid="uid://c5cuon6ijdetg" path="res://obj_ball/ball_FPO.png" id="1_lyfwk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kne1u"]
@@ -11,6 +12,7 @@ radius = 31.016125
 [node name="ball" type="RigidBody2D" unique_id=2127765814]
 physics_material_override = SubResource("PhysicsMaterial_kne1u")
 gravity_scale = 0.25
+script = ExtResource("1_gdgtj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=522186281]
 texture_filter = 1

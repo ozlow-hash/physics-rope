@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b7xgeyn5ibvp6"]
+
+[ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="1_3md63"]
+[ext_resource type="Script" uid="uid://c8808ns3o30vv" path="res://objective_point.gd" id="1_psunf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(247, 37)
+
+[node name="detectionarea" type="Area2D" unique_id=233864598]
+script = ExtResource("1_psunf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1624145209]
+position = Vector2(2.5, -8.5)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="ObjectivePoint" type="Node2D" parent="." unique_id=1649377580]
+
+[node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("1_3md63")]
