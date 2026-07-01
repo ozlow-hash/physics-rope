@@ -14,6 +14,7 @@
 
 [node name="ball" parent="." unique_id=2127765814 instance=ExtResource("2_t7iv1")]
 position = Vector2(-32, -713)
+mass = 0.001
 
 [node name="ball2" parent="." unique_id=1910254225 instance=ExtResource("2_t7iv1")]
 position = Vector2(-5, -593)
