@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://shv6rfvynb7l" path="res://player.gd" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://f2ymf0dm6rw6" path="res://hud.gd" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://bitk3oyo668ie" path="res://score.gd" id="3_kne1u"]
 
 [sub_resource type="Theme" id="Theme_kne1u"]
 
@@ -29,5 +30,18 @@ theme = SubResource("Theme_kne1u")
 theme_override_styles/background = SubResource("StyleBoxFlat_e80uo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cxr5p")
 script = ExtResource("2_kpjcp")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD" unique_id=986524059]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 554.0
+offset_top = 51.0
+offset_right = -558.0
+offset_bottom = -557.0
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_kne1u")
 
 [connection signal="update_remaining" from="." to="HUD/RopeBar" method="_on_player_update_remaining"]

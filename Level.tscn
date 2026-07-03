@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ykqnk1mp8ktg" path="res://Player.tscn" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://ck37ad7hbq2oq" path="res://obj_ball/ball.tscn" id="2_t7iv1"]
 [ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="3_2nifc"]
-[ext_resource type="PackedScene" uid="uid://xk330idfxyro" path="res://hud.tscn" id="4_wkftn"]
 [ext_resource type="PackedScene" uid="uid://b7xgeyn5ibvp6" path="res://objective point.tscn" id="5_q4iis"]
 
 [node name="Level" type="Node2D" unique_id=1858084982]
@@ -14,7 +13,6 @@
 
 [node name="ball" parent="." unique_id=2127765814 instance=ExtResource("2_t7iv1")]
 position = Vector2(-32, -713)
-mass = 0.001
 
 [node name="ball2" parent="." unique_id=1910254225 instance=ExtResource("2_t7iv1")]
 position = Vector2(-5, -593)
@@ -27,9 +25,6 @@ position = Vector2(95, -679)
 
 [node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("3_2nifc")]
 position = Vector2(0, 559)
-
-[node name="hud" parent="." unique_id=1067405907 instance=ExtResource("4_wkftn")]
-position = Vector2(2, -291)
 
 [node name="ObjectivePoint" parent="." unique_id=1649377580 instance=ExtResource("5_q4iis")]
 position = Vector2(6, 296)
