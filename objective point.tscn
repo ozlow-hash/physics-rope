@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="1_3md63"]
 [ext_resource type="Script" uid="uid://c8808ns3o30vv" path="res://objective_point.gd" id="1_psunf"]
+[ext_resource type="Texture2D" uid="uid://t402t5x6w4sy" path="res://icon.svg" id="3_ejp14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(247, 37)
@@ -13,6 +14,11 @@ script = ExtResource("1_psunf")
 position = Vector2(2.5, -8.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
-[node name="ObjectivePoint" type="Node2D" parent="." unique_id=1649377580]
-
 [node name="LandingPad" parent="." unique_id=224292735 instance=ExtResource("1_3md63")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2098272272]
+position = Vector2(3.0000002, 0)
+scale = Vector2(1.8359375, 0.140625)
+texture = ExtResource("3_ejp14")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

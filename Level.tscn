@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://c67rxo7fchuvg"]
 
 [ext_resource type="PackedScene" uid="uid://ykqnk1mp8ktg" path="res://Player.tscn" id="1_bexhn"]
-[ext_resource type="PackedScene" uid="uid://ck37ad7hbq2oq" path="res://obj_ball/ball.tscn" id="2_t7iv1"]
-[ext_resource type="PackedScene" uid="uid://edaexxccujv" path="res://obj_wall/wall.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://coys38kww2yd6" path="res://obj_ball/ball_spawner.tscn" id="4_wkftn"]
 [ext_resource type="PackedScene" uid="uid://b7xgeyn5ibvp6" path="res://objective point.tscn" id="5_q4iis"]
 
 [node name="Level" type="Node2D" unique_id=1858084982]
@@ -11,22 +10,8 @@
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=826693543]
 
-[node name="ball" parent="." unique_id=2127765814 instance=ExtResource("2_t7iv1")]
-position = Vector2(-32, -713)
-
-[node name="ball2" parent="." unique_id=1910254225 instance=ExtResource("2_t7iv1")]
-position = Vector2(-5, -593)
-
-[node name="ball3" parent="." unique_id=695228324 instance=ExtResource("2_t7iv1")]
-position = Vector2(64, -511)
-
-[node name="ball4" parent="." unique_id=759252870 instance=ExtResource("2_t7iv1")]
-position = Vector2(95, -679)
-
-[node name="StaticBody2D" parent="." unique_id=224292735 instance=ExtResource("3_2nifc")]
-position = Vector2(0, 559)
-
 [node name="ObjectivePoint" parent="." unique_id=1649377580 instance=ExtResource("5_q4iis")]
-position = Vector2(6, 296)
+position = Vector2(-326, 286)
 
-[connection signal="body_entered" from="ObjectivePoint" to="ball" method="_on_objective_point_body_entered"]
+[node name="BallSpawner" parent="." unique_id=1548952077 instance=ExtResource("4_wkftn")]
+position = Vector2(-5, -442)
